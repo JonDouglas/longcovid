@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "longcovid"
+version = "0.1.0"
+description = "longcovid using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "<=3.13,>=3.10"
+crewai = "^0.74.2"
+xmltodict = "^0.14.2"
+
+[tool.poetry.scripts]
+longcovid = "longcovid.main:run"
+train = "longcovid.main:train"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
