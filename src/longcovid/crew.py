@@ -171,8 +171,7 @@ class LongCovidCrew():
             ],  # Statistical tools can be integrated if needed
             allow_delegation=False,
             verbose=True,
-            llm=self.llm,
-            allow_code_execution=True,
+            llm=self.llm
         )
 
     @agent
@@ -181,6 +180,21 @@ class LongCovidCrew():
             config=self.agents_config['project_manager'],
             # tools=[MarkdownSaveTool()],
             allow_delegation=True,  # Can delegate tasks and facilitate collaboration
+            verbose=True,
+            llm=self.llm
+        )
+    
+    @agent
+    def science_writer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['science_writer'],
+            tools=[
+                PubmedQueryRun(),     # Access to PubMed for pharmacological studies
+                WebsiteSearchTool(),      # Enables web searches for drug information
+                SerperDevTool(),
+                PDFSearchTool(pdf="../mechanisms.pdf"),       # Advanced searches for clinical trials and drug databases
+            ],
+            allow_delegation=False,  # Can delegate tasks and facilitate collaboration
             verbose=True,
             llm=self.llm
         )
@@ -198,7 +212,7 @@ class LongCovidCrew():
             #     self.microbiome_specialist(),
             #     self.metabolism_expert(),
             # ],
-            output_file='reports/conduct_mechanism_research_task.md'
+            output_file='reports/mechanisms/conduct_mechanism_research_task.md'
         )
 
     @task
@@ -224,7 +238,7 @@ class LongCovidCrew():
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task()
             ],
-            output_file='reports/identify_therapeutics_task.md'
+            output_file='reports/treatments/identify_therapeutics_task.md'
         )
 
     @task
@@ -250,7 +264,7 @@ class LongCovidCrew():
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
             ],
-            output_file='reports/develop_combination_treatments_task.md'
+            output_file='reports/treatments/develop_combination_treatments_task.md'
         )
 
     @task
@@ -278,7 +292,7 @@ class LongCovidCrew():
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
             ],
-            output_file='reports/analyze_data_trends_task.md'
+            output_file='reports/analysis/analyze_data_trends_task.md'
         )
 
     @task
@@ -333,14 +347,14 @@ class LongCovidCrew():
                 self.update_shared_memory_task()
                 # Removed self.facilitate_collaboration_task() to prevent circular dependency
             ],
-            output_file='reports/ensure_quality_and_alignment_task.md'
+            output_file='reports/management/ensure_quality_and_alignment_task.md'
         )
 
     @task
     def compile_final_report_task(self) -> Task:
         return Task(
             config=self.tasks_config['compile_final_report_task'],
-            agent=self.project_manager(),
+            agent=self.science_writer(),
             context=[
                 self.conduct_mechanism_research_task(),
                 self.identify_therapeutics_task(),
@@ -367,7 +381,7 @@ class LongCovidCrew():
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
             ],
-            output_file='reports/compile_final_report_task.md'
+            output_file='reports/final/compile_final_report_task.md'
         )
 
     @task
@@ -397,7 +411,7 @@ class LongCovidCrew():
         return Task(
             config=self.tasks_config['analyze_epidemiological_data_task'],
             agent=self.epidemiology_analyst(),
-            output_file='reports/analyze_epidemiological_data_task.md'
+            output_file='reports/analysis/analyze_epidemiological_data_task.md'
         )
 
     @task
@@ -407,7 +421,7 @@ class LongCovidCrew():
             agent=self.immunology_specialist(),
             context=[self.conduct_mechanism_research_task()],
             dependencies=[self.conduct_mechanism_research_task()],
-            output_file='reports/investigate_immune_responses_task.md'
+            output_file='reports/mechanisms/investigate_immune_responses_task.md'
         )
 
     @task
@@ -417,7 +431,7 @@ class LongCovidCrew():
             agent=self.virology_expert(),
             context=[self.conduct_mechanism_research_task()],
             dependencies=[self.conduct_mechanism_research_task()],
-            output_file='reports/explore_viral_persistence_task.md'
+            output_file='reports/mechanisms/explore_viral_persistence_task.md'
         )
 
     @task
@@ -427,7 +441,7 @@ class LongCovidCrew():
             agent=self.cardiology_specialist(),
             context=[self.conduct_mechanism_research_task()],
             dependencies=[self.conduct_mechanism_research_task()],
-            output_file='reports/assess_cardiovascular_complications_task.md'
+            output_file='reports/mechanisms/assess_cardiovascular_complications_task.md'
         )
 
     @task
@@ -437,7 +451,7 @@ class LongCovidCrew():
             agent=self.neurology_expert(),
             context=[self.conduct_mechanism_research_task()],
             dependencies=[self.conduct_mechanism_research_task()],
-            output_file='reports/investigate_neurological_manifestations_task.md'
+            output_file='reports/mechanisms/investigate_neurological_manifestations_task.md'
         )
 
     @task
@@ -447,7 +461,7 @@ class LongCovidCrew():
             agent=self.microbiome_specialist(),
             context=[self.conduct_mechanism_research_task()],
             dependencies=[self.conduct_mechanism_research_task()],
-            output_file='reports/analyze_microbiome_impact_task.md'
+            output_file='reports/mechanisms/analyze_microbiome_impact_task.md'
         )
 
     @task
@@ -457,7 +471,7 @@ class LongCovidCrew():
             agent=self.metabolism_expert(),
             context=[self.conduct_mechanism_research_task()],
             dependencies=[self.conduct_mechanism_research_task()],
-            output_file='reports/investigate_metabolic_disruptions_task.md'
+            output_file='reports/mechanisms/investigate_metabolic_disruptions_task.md'
         )
 
     @task
@@ -467,7 +481,7 @@ class LongCovidCrew():
             agent=self.lead_medical_researcher(),
             dependencies=[
                 self.compile_final_report_task(),
-                self.ensure_quality_and_alignment_task()
+                self.ensure_quality_and_alignment_task(),
             ]
         )
 
@@ -510,3 +524,5 @@ class LongCovidCrew():
             process=Process.sequential,
             verbose=True,
         )
+
+

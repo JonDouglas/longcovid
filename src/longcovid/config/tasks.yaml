@@ -1,10 +1,14 @@
 conduct_mechanism_research_task:
   description: >
-    **Objective:** Conduct a comprehensive and in-depth literature review to identify and summarize the leading hypotheses on Long COVID mechanisms.
+    **Objective:** Conduct a comprehensive and in-depth literature review to identify and summarize the leading hypotheses on Long COVID mechanisms, starting with the provided mechanisms PDF.
 
     **Approach:**
-    - Utilize advanced search strategies on up-to-date medical databases such as PubMed, Scopus, and Web of Science.
+    - Begin by thoroughly reading and analyzing the provided mechanisms PDF.
+    - Extract key hypotheses, findings, and supporting evidence from the PDF.
+    - Use the information from the PDF as a foundation for further research.
+    - Utilize advanced search strategies on up-to-date medical databases such as PubMed, Scopus, and Web of Science to supplement and update the information from the PDF.
     - Include the most recent peer-reviewed journals, focusing on studies published within the last couple of years.
+    - **Explicitly search preprint servers such as medRxiv, bioRxiv, and arXiv for the latest unpublished research.**
     - Identify both well-established and emerging hypotheses, ensuring a broad perspective.
     - Collaborate with other agents to cross-validate findings and fill knowledge gaps.
     - Organize findings thematically to highlight different categories of mechanisms (e.g., immunological, neurological, vascular).
@@ -13,15 +17,18 @@ conduct_mechanism_research_task:
     - Strength of supporting evidence (e.g., sample size, study design, replication).
     - Relevance to a significant proportion of Long COVID patients.
     - Novelty and potential for impacting future research or treatment.
+    - **Potential to address root causes rather than just symptoms.**
 
     **Research Focus:**
     {research_focus}
   expected_output: >
     A detailed report in markdown format including:
-    - **Executive Summary:** Key findings and most promising hypotheses.
+    - **Executive Summary:** Key findings and most promising hypotheses, highlighting how they relate to or expand upon the information in the mechanisms PDF.
+    - **Analysis of Mechanisms PDF:** Summary of key points and hypotheses from the provided document.
     - **List of up to 15 leading hypotheses**, each containing:
       - Detailed description of the mechanism.
       - Summary of supporting evidence with critical appraisal.
+      - Comparison to information found in the mechanisms PDF, if applicable.
       - Diagrams or illustrations where applicable.
       - Relevant citations with complete publication details.
     - **Identification of Research Gaps:**
@@ -29,11 +36,12 @@ conduct_mechanism_research_task:
       - Suggestions for future investigations to address these gaps.
     - **Appendices:**
       - Search strategies and keywords used.
-      - List of databases and journals consulted.
+      - List of databases, journals, and **preprint servers** consulted.
+      - **Summary of key findings from preprint servers, clearly labeled as not yet peer-reviewed.**
 
 identify_therapeutics_task:
   description: >
-    **Objective:** Identify and evaluate therapeutics that specifically target the identified Long COVID mechanisms, with a focus on novel, promising, and potentially high-impact interventions. Additionally, explore cutting-edge experimental therapeutics that push the boundaries of conventional medicine.
+    **Objective:** Identify and evaluate therapeutics that specifically target the identified Long COVID mechanisms, with a focus on novel, promising, and potentially high-impact interventions, regardless of cost or accessibility. Prioritize experimental and cutting-edge approaches.
 
     **Approach:**
     - Conduct systematic searches of pharmacological databases (e.g., DrugBank, FDA databases).
@@ -42,6 +50,8 @@ identify_therapeutics_task:
     - Focus on interventions with strong mechanistic rationale and potential for significant impact.
     - Collaborate with the Lead Medical Researcher to ensure alignment with identified mechanisms.
     - **Prioritize therapeutics targeting the leading hypotheses identified in the previous task.**
+    - **Actively seek out experimental and cutting-edge therapies, including those in early stages of development.**
+    - **Explicitly search preprint servers such as medRxiv, bioRxiv, and arXiv for the latest unpublished research on potential therapeutics.**
 
     **Additional Guidelines:**
     - Review acute COVID-19 therapeutic data to identify potential candidates for Long COVID treatment.
@@ -51,13 +61,13 @@ identify_therapeutics_task:
     - Document the rationale for including any acute COVID-19 therapeutics that were ineffective on their own.
 
     **Evaluation Criteria:**
-    - **Novelty and innovation in addressing Long COVID mechanisms.**
     - Potential for high impact on patient outcomes.
+    - Novelty and innovation in addressing Long COVID mechanisms.
     - Mechanism of action relevance to Long COVID mechanisms.
-    - Stage of development (e.g., preclinical, Phase I-III trials, approved).
+    - **Ability to target root causes rather than just managing symptoms.**
     - Strength of efficacy data from clinical trials or case studies.
+    - Stage of development (e.g., preclinical, Phase I-III trials, approved).
     - Safety profile and potential adverse effects.
-    - Feasibility of rapid deployment or inclusion in clinical trials.
 
     **Research Focus:**
     {research_focus}
@@ -80,69 +90,119 @@ identify_therapeutics_task:
       - Ethical considerations or challenges.
       - Relevant research or preliminary data, if available.
     - **Prioritization Matrix:**
-      - Therapeutics ranked based on novelty, potential impact, and feasibility.
+      - Therapeutics ranked based on potential impact, novelty, and efficacy.
       - **Emphasis on therapeutics targeting leading hypotheses.**
-      - Justification for prioritization decisions.
+      - Justification for prioritization decisions based on scientific merit and potential outcomes.
     - **Recommendations:**
       - Therapeutics suitable for immediate inclusion in clinical trials.
       - Suggestions for further preclinical research where needed.
     - **Acute COVID-19 Therapeutic Analysis:**
       - List of acute COVID-19 therapeutics considered and their outcomes.
       - Justification for inclusion of any acute COVID-19 therapeutics that showed no individual effect.
+    - **Preprint Analysis:**
+      - Summary of key findings from preprint servers, clearly labeled as not yet peer-reviewed.
+      - Assessment of potential impact of preprint findings on therapeutic development.
 
 develop_combination_treatments_task:
   description: >
-    **Objective:** Develop and propose innovative combination treatment strategies that synergistically address multiple mechanisms of Long COVID, focusing on the most promising hypotheses and allowing for repetition of highly promising therapeutics in different combinations. While prioritizing combinations, consider monotherapies when warranted by strong scientific evidence.
+    **Objective:** Develop and propose innovative combination treatment strategies that synergistically address multiple mechanisms of Long COVID, focusing on the most promising hypotheses and allowing for repetition of highly promising therapeutics in different combinations. Prioritize efficacy and potential impact over cost or accessibility concerns. Include experimental and cutting-edge approaches in combinations where appropriate.
 
     **Approach:**
     - Analyze the list of identified therapeutics for potential synergistic effects.
     - Generate combinations focusing on novel and potentially high-impact interventions.
     - Allow repetition of highly promising therapeutics in different combinations if scientifically justified.
+    - **Emphasize combinations that enhance specific mechanisms' effectiveness.**
+    - **Prioritize combinations that address multiple mechanisms simultaneously.**
     - Use drug interaction databases to assess compatibility and avoid contraindications.
     - Consider multi-modal approaches, including pharmacological and non-pharmacological interventions.
-    - Collaborate with pharmacology and clinical experts to validate proposed combinations.
+    - **Incorporate patient stratification**, considering subgroups based on symptom clusters, severity, demographics, comorbidities, or biomarkers.
+    - Utilize **pharmacogenomics** to tailor treatments based on genetic profiles.
+    - **Integrate the latest research findings**, including recent publications, preprints, and ongoing clinical trials.
+    - **Explicitly search preprint servers such as medRxiv, bioRxiv, and arXiv for the latest unpublished research on combination treatments.**
+    - Utilize **real-world evidence** from patient registries and electronic health records.
+    - Collaborate with pharmacology, clinical, and regulatory experts to validate proposed combinations.
     - Evaluate the potential for enhancing efficacy while minimizing adverse effects.
+    - **Leverage advanced computational modeling and AI** for predicting synergistic interactions.
     - **Prioritize combinations that include therapeutics targeting the leading and prioritized hypotheses identified earlier.**
     - Assess monotherapies that show exceptional promise and provide strong scientific justification for their consideration.
+    - **Plan for adaptive clinical trial designs** to efficiently evaluate multiple treatments.
+    - **Consider cost-effectiveness and accessibility** in different healthcare settings, but prioritize finding effective combinations regardless of initial cost.
+    - Emphasize **patient-centered outcomes**, including quality of life and functional improvements.
+    - Address **ethical and equity considerations**, ensuring proposed treatments are inclusive.
+    - **Integrate experimental and cutting-edge therapeutics** into combination strategies where scientifically justified.
+    - **Draw inspiration from the AIDS/HIV crisis:**
+      - Embrace a "cocktail" approach, combining multiple drugs with different mechanisms of action.
+      - Consider aggressive combination therapies to target the disease from multiple angles.
+      - Be open to unconventional combinations that may not seem intuitive at first.
 
     **Additional Guidelines:**
+    - **Draw inspiration from the AIDS/HIV crisis:**
+      - Embrace a "cocktail" approach, combining multiple drugs with different mechanisms of action.
+      - Consider aggressive combination therapies to target the disease from multiple angles.
+      - Be open to unconventional combinations that may not seem intuitive at first.
     - Consider including acute COVID-19 therapeutics that showed no individual effect but have potential for synergistic effects in combinations.
     - Provide clear rationale for any acute COVID-19 therapeutics included in combinations, especially if they were ineffective on their own.
+    - Develop detailed **safety monitoring plans**, including post-marketing surveillance.
+    - Identify **regulatory pathways** for expedited approval, such as emergency use authorizations.
+    - Include **global health perspectives**, ensuring treatments are applicable in various international contexts.
 
     **Assessment Criteria:**
-    - **Innovation and potential impact of each combination.**
+    - **Innovation and potential impact of each combination, with emphasis on addressing root causes.**
     - Mechanistic complementarity of combined therapeutics.
-    - **Alignment with leading hypotheses.**
+    - **Alignment with leading hypotheses about root causes.**
+    - **Coverage of multiple mechanisms of Long COVID, prioritizing those addressing underlying pathology.**
     - Evidence supporting synergistic interactions.
     - Safety considerations, including potential drug-drug interactions.
-    - Practicality of administration (e.g., dosing schedules, route of administration).
+    - **Patient-centered outcomes, focusing on long-term improvements and potential for disease modification.**
 
     **Research Focus:**
     {research_focus}
   expected_output: >
     A strategic proposal in markdown format including:
-    - **Set of up to 10 innovative combination treatments**, each detailing:
+    - **Set of up to 15 innovative combination treatments**, each detailing:
       - Components of the combination (therapeutics/interventions).
       - Rationale for the combination, including mechanistic synergy.
-      - **Explanation of how combining therapeutics targeting leading hypotheses may enhance efficacy.**
+      - **Explanation of how the combination targets root causes of Long COVID.**
+      - **Description of how the combination addresses multiple Long COVID mechanisms, prioritizing underlying pathology.**
       - Justification for repeating any promising therapeutic in multiple combinations, if applicable.
       - Potential benefits over monotherapy.
-      - Safety considerations and interaction assessments.
+      - **Comparison to AIDS/HIV combination therapy approaches, highlighting similarities in strategy.**
+      - Safety considerations and interaction assessments, including detailed monitoring plans.
       - Proposed dosing regimens and administration guidelines.
+      - **Patient stratification insights**, identifying subgroups likely to benefit most.
+      - **Pharmacogenomic considerations** if applicable.
+      - **Cost-effectiveness analysis** and accessibility considerations, with emphasis on potential long-term benefits and efficacy regardless of initial cost.
+      - **Regulatory pathway** suggestions for approval.
+      - **Ethical and equity considerations**, addressing potential disparities.
+      - Inclusion of experimental therapeutics, if applicable, with justification.
     - **Up to 3 high-potential monotherapies** (if applicable):
       - Detailed rationale for consideration as a standalone treatment.
       - Strong scientific evidence supporting its use.
       - Comparison of potential benefits against combination approaches.
+      - **Patient-centered outcomes** and quality of life impact.
+      - **Cost-effectiveness** and accessibility.
+      - **Regulatory and ethical considerations**.
     - **Prioritization and Feasibility Analysis:**
-      - Ranking of combinations and monotherapies based on innovation, potential impact, and feasibility.
-      - **Emphasis on combinations that include therapeutics targeting leading hypotheses.**
+      - Ranking of combinations and monotherapies based on innovation, potential impact, feasibility, patient-centered outcomes, and ethical considerations.
+      - **Emphasis on combinations that include therapeutics targeting root causes and addressing multiple underlying mechanisms.**
       - Justification for any monotherapies included in the prioritization.
     - **Recommendations for Clinical Evaluation:**
-      - Suggestions for pilot studies or inclusion in adaptive trial designs.
-      - Monitoring strategies for assessing efficacy and safety.
+      - Suggestions for pilot studies or inclusion in **adaptive trial designs**.
+      - Monitoring strategies for assessing efficacy and safety, including patient-reported outcomes.
+      - Detailed **safety monitoring plans** and post-marketing surveillance strategies.
+      - **Regulatory considerations** for clinical trial approval.
     - **Acute COVID-19 Therapeutic Integration:**
       - Explanation of how acute COVID-19 therapeutics are incorporated into combination treatments, if applicable.
       - Justification for including any acute COVID-19 therapeutics that showed no individual effect.
+    - **Global Health and Equity Considerations:**
+      - Discussion on the applicability of treatments in various international contexts.
+      - Strategies to ensure equitable access and minimize health disparities.
+    - **Lessons from AIDS/HIV Crisis:**
+      - Analysis of how the proposed combination strategies align with successful approaches from the AIDS/HIV treatment paradigm.
+      - Discussion on potential long-term benefits of aggressive combination therapies, despite initial costs.
+    - **Preprint Analysis:**
+      - Summary of key findings from preprint servers related to combination treatments, clearly labeled as not yet peer-reviewed.
+      - Assessment of potential impact of preprint findings on combination treatment strategies.
 
 analyze_data_trends_task:
   description: >
@@ -180,15 +240,26 @@ analyze_data_trends_task:
 
 compile_final_report_task:
   description: >
-    **Objective:** Compile and synthesize all findings into a cohesive and comprehensive final report suitable for dissemination to stakeholders.
+    **Objective:** Compile and synthesize all findings from previous tasks into a cohesive and comprehensive final report suitable for dissemination to stakeholders, covering all identified mechanisms, treatments, and data analysis related to Long COVID.
 
     **Approach:**
-    - Integrate contributions from all team members, ensuring consistency in style and terminology.
+    - Integrate contributions from all previous tasks, ensuring comprehensive coverage of key areas.
+    - Synthesize findings to present a holistic view of Long COVID pathology and potential interventions.
     - Emphasize clarity and readability for both scientific and non-specialist audiences.
     - Include executive summaries, detailed analyses, and actionable recommendations.
-    - Ensure all content focuses on pathological findings and mechanisms of action.
+    - Ensure all content focuses on pathological findings, mechanisms of action, and innovative approaches.
     - Perform thorough proofreading and editing to eliminate errors.
-    - **Generate the full report content directly in this task output.**
+
+    **Key Areas to Cover:**
+    - Long COVID mechanisms
+    - Novel and innovative treatments, including combination therapies
+    - Epidemiological data
+    - Immune responses and biomarkers
+    - Viral persistence
+    - Cardiovascular complications
+    - Neurological manifestations
+    - Microbiome impact
+    - Metabolic disruptions
 
     **Formatting Guidelines:**
     - Use Markdown format for the entire report.
@@ -201,7 +272,71 @@ compile_final_report_task:
     **Research Focus:**
     {research_focus}
   expected_output: >
-    A complete, finalized report in Markdown format, including all sections as outlined in the research focus, without any code blocks or non-Markdown elements. The report should be ready for direct use or further processing without needing to extract content from a code block.
+    A comprehensive and detailed final report in markdown format, including:
+
+    - **Title Page:**
+      - Report title, date, and authorship information
+    - **Table of Contents:**
+      - Detailed listing of all sections and subsections with page numbers
+    - **Executive Summary:**
+      - Concise overview of key findings, implications, and recommendations
+    - **Introduction:**
+      - Background on Long COVID
+      - Objectives of the research project
+      - Scope and limitations of the study
+    - **Methodology:**
+      - Detailed description of research methods and data sources
+      - Explanation of analytical approaches used
+    - **Findings:**
+      - **Long COVID Mechanisms:**
+        - Detailed analysis of identified pathological mechanisms
+        - Evaluation of supporting evidence for each mechanism
+      - **Epidemiology of Long COVID:**
+        - Prevalence, risk factors, and demographic patterns
+        - Temporal trends and geographical variations
+      - **Immune Responses and Dysfunction:**
+        - Analysis of immune system abnormalities
+        - Identification and evaluation of immune-related biomarkers
+      - **Viral Persistence:**
+        - Evidence for and against viral persistence
+        - Potential implications for treatment strategies
+      - **Cardiovascular Complications:**
+        - Overview of cardiovascular manifestations
+        - Analysis of underlying mechanisms and biomarkers
+      - **Neurological Manifestations:**
+        - Catalog of neurological symptoms and syndromes
+        - Evaluation of potential neurological biomarkers
+      - **Microbiome Impact:**
+        - Analysis of gut microbiome alterations
+        - Implications for gut-brain axis and systemic effects
+      - **Metabolic Disruptions:**
+        - Assessment of metabolic abnormalities and mitochondrial dysfunction
+        - Identification of relevant metabolic biomarkers
+      - **Evaluation of Novel Therapeutics:**
+        - Detailed analysis of promising treatment candidates
+        - Assessment of efficacy, safety, and mechanism of action
+      - **Innovative Combination Treatment Strategies:**
+        - Proposed combination therapies with rationale
+        - Potential synergistic effects and challenges
+    - **Data Analysis and Trends:**
+      - Statistical summaries and visualizations
+      - Interpretation of significant correlations and patterns
+    - **Discussion:**
+      - Synthesis of findings across all investigated areas
+      - Implications for understanding Long COVID pathophysiology
+      - Potential impact on diagnostic and treatment approaches
+    - **Conclusions and Recommendations:**
+      - Key takeaways from the research
+      - Actionable recommendations for clinical practice and policy
+    - **Future Research Directions:**
+      - Identified knowledge gaps
+      - Proposed studies to address outstanding questions
+    - **References:**
+      - Comprehensive list of all cited sources
+    - **Appendices:**
+      - Supplementary data, methodological details, and additional analyses
+
+    The report should provide a comprehensive overview of all aspects of Long COVID investigated, synthesizing the findings from all previous tasks into a cohesive narrative. It should be written in clear, accessible language while maintaining scientific rigor, and should offer valuable insights for both researchers and healthcare practitioners.
 
 facilitate_collaboration_task:
   description: >
@@ -269,7 +404,7 @@ update_shared_memory_task:
 
 ensure_quality_and_alignment_task:
   description: >
-    **Objective:** Review all outputs from team members to ensure accuracy, relevance, and alignment with project goals, focusing on novel and potentially high-impact interventions and combinations, while also considering justified monotherapies.
+    **Objective:** Review all outputs from team members to ensure accuracy, relevance, and alignment with project goals, focusing on novel and potentially high-impact interventions and combinations, while also considering justified monotherapies. Prioritize scientific merit and potential efficacy over cost or accessibility concerns. Ensure adequate attention is given to experimental and cutting-edge approaches.
 
     **Approach:**
     - Review all task outputs for accuracy, completeness, and alignment with project objectives.
@@ -282,10 +417,12 @@ ensure_quality_and_alignment_task:
     **Quality Criteria:**
     - Accuracy and reliability of information.
     - Adherence to project scope and objectives.
-    - Focus on novel and potentially high-impact interventions.
+    - Focus on novel and potentially high-impact interventions, regardless of cost.
+    - **Emphasis on addressing root causes rather than just symptom management.**
     - Clarity and coherence of presented information.
     - Proper citation and referencing of sources.
-    - **Justification for Therapeutic Combinations and Monotherapies:** Confirm that all proposed combinations and monotherapies are well-reasoned and potentially impactful.
+    - **Justification for Therapeutic Combinations and Monotherapies:** Confirm that all proposed combinations and monotherapies are well-reasoned and potentially impactful, based on scientific merit and ability to address root causes rather than cost considerations.
+    - **Inclusion of Experimental Approaches:** Verify that cutting-edge and experimental therapies are adequately represented and justified in proposed interventions and combinations.
 
     **Formatting Guidelines:**
     - Use Markdown format for the entire quality assurance report.
@@ -368,7 +505,14 @@ analyze_epidemiological_data_task:
 
 investigate_immune_responses_task:
   description: >
-    Investigate and elucidate the complex immune responses and dysfunctions associated with Long COVID.
+    Investigate and elucidate the complex immune responses and dysfunctions associated with Long COVID, with a focus on identifying relevant biomarkers.
+    
+    **Approach:**
+    - Analyze potential biomarkers indicative of immune response or ongoing immune activity.
+    - Evaluate the sensitivity and specificity of identified biomarkers.
+    - Consider both direct (immune components) and indirect (host response) biomarkers.
+    - Identify and evaluate potential immune-related biomarkers for diagnosis, prognosis, and treatment response.
+    - Assess the utility of various immune cell populations, cytokines, and antibodies as biomarkers.
   expected_output: >
     A detailed immunological analysis in markdown format including:
     - Overview of key immune system components involved in Long COVID.
@@ -378,10 +522,32 @@ investigate_immune_responses_task:
     - Analysis of cytokine profiles and their implications.
     - Potential immune-based biomarkers for Long COVID diagnosis and prognosis.
     - Implications for immune-modulating therapeutic strategies.
+    - Comprehensive analysis of potential immune-based biomarkers:
+      - Specific immune cell populations (e.g., T-cell subsets, B-cells, NK cells).
+      - Cytokine and chemokine profiles.
+      - Autoantibodies and other serological markers.
+    - Evaluation of biomarker utility:
+      - Sensitivity and specificity for Long COVID diagnosis or prognosis.
+      - Correlation with symptom severity or specific manifestations.
+      - Potential for monitoring treatment response.
+    - Recommendations for implementing immune-based biomarkers in clinical practice and research.
+
+    **Formatting Guidelines:**
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
 
 explore_viral_persistence_task:
   description: >
-    Investigate the potential persistence of SARS-CoV-2 or its components in tissues and explore how viral mechanisms could drive chronic symptoms in Long COVID.
+    Investigate the potential persistence of SARS-CoV-2 or its components in tissues and explore how viral mechanisms could drive chronic symptoms in Long COVID. Additionally, identify and evaluate potential biomarkers associated with viral persistence.
+
+    **Approach:**
+    - Analyze potential biomarkers indicative of viral persistence or ongoing viral activity.
+    - Evaluate the sensitivity and specificity of identified biomarkers.
+    - Consider both direct (viral components) and indirect (host response) biomarkers.
   expected_output: >
     A comprehensive report in markdown format including:
     - Evidence for and against viral persistence in Long COVID.
@@ -390,10 +556,33 @@ explore_viral_persistence_task:
     - Mechanisms by which viral persistence could contribute to chronic symptoms.
     - Evaluation of current antiviral strategies for Long COVID.
     - Recommendations for future research on viral persistence and its implications.
+    - Potential biomarkers for viral persistence:
+      - Direct biomarkers (e.g., viral RNA, proteins, or antigens).
+      - Indirect biomarkers (e.g., specific antibody profiles, immune signatures).
+    - Evaluation of biomarker utility:
+      - Sensitivity and specificity for detecting viral persistence.
+      - Correlation with symptom severity or duration.
+      - Potential use in diagnosis, prognosis, or treatment monitoring.
+    - Recommendations for biomarker-based research and clinical applications.
+
+    **Formatting Guidelines:**
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
 
 assess_cardiovascular_complications_task:
   description: >
-    Investigate cardiovascular complications in Long COVID, focusing on endotheliopathy, thromboinflammation, and microvascular dysfunction.
+    Investigate cardiovascular complications in Long COVID, focusing on endotheliopathy, thromboinflammation, and microvascular dysfunction, while identifying relevant biomarkers.
+    
+    **Approach:**
+    - Analyze potential biomarkers indicative of cardiovascular complications in Long COVID.
+    - Evaluate the sensitivity and specificity of identified biomarkers.
+    - Consider both direct (cardiovascular components) and indirect (systemic effects) biomarkers.
+    - Identify and evaluate cardiovascular biomarkers specific to Long COVID.
+    - Assess the utility of traditional and novel cardiovascular biomarkers in this context.
   expected_output: >
     A detailed cardiovascular assessment in markdown format including:
     - Overview of major cardiovascular complications observed in Long COVID.
@@ -403,10 +592,34 @@ assess_cardiovascular_complications_task:
     - Potential biomarkers for cardiovascular complications in Long COVID.
     - Implications for cardiovascular-focused therapeutic approaches.
     - Recommendations for cardiac monitoring and management in Long COVID patients.
+    - Comprehensive analysis of cardiovascular biomarkers in Long COVID:
+      - Traditional markers (e.g., troponin, BNP, D-dimer).
+      - Novel biomarkers specific to endothelial dysfunction or microvascular injury.
+      - Imaging-based biomarkers (e.g., echocardiographic parameters, vascular imaging findings).
+    - Evaluation of biomarker utility:
+      - Diagnostic and prognostic value for cardiovascular complications.
+      - Correlation with specific cardiovascular manifestations or outcomes.
+      - Potential for guiding treatment decisions or monitoring therapy.
+    - Recommendations for implementing cardiovascular biomarkers in Long COVID management and research.
+
+    **Formatting Guidelines:**
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
 
 investigate_neurological_manifestations_task:
   description: >
-    Investigate neurological manifestations of Long COVID, including cognitive dysfunction, neuropathy, and dysautonomia.
+    Investigate neurological manifestations of Long COVID, including cognitive dysfunction, neuropathy, and dysautonomia, with a focus on identifying relevant biomarkers.
+    
+    **Approach:**
+    - Analyze potential biomarkers indicative of neurological involvement in Long COVID.
+    - Evaluate the sensitivity and specificity of identified biomarkers.
+    - Consider both direct (neurological components) and indirect (systemic effects) biomarkers.
+    - Identify and evaluate potential neurological biomarkers for diagnosis, prognosis, and treatment response.
+    - Assess the utility of neuroimaging, neurophysiological, and biochemical markers.
   expected_output: >
     A comprehensive neurological report in markdown format including:
     - Catalog of common neurological symptoms in Long COVID.
@@ -417,10 +630,35 @@ investigate_neurological_manifestations_task:
     - Potential neurological biomarkers for diagnosis and prognosis.
     - Implications for neuroprotective and neuroregenerative therapies.
     - Recommendations for neurological assessment and management in Long COVID.
+    - Detailed analysis of potential neurological biomarkers:
+      - Neuroimaging markers (e.g., structural or functional MRI findings).
+      - Neurophysiological markers (e.g., EEG patterns, nerve conduction studies).
+      - Biochemical markers in blood or cerebrospinal fluid.
+      - Cognitive assessment scores as functional biomarkers.
+    - Evaluation of biomarker utility:
+      - Sensitivity and specificity for detecting neurological involvement in Long COVID.
+      - Correlation with specific neurological symptoms or syndromes.
+      - Potential for monitoring disease progression or treatment response.
+    - Recommendations for implementing neurological biomarkers in clinical assessment and research protocols.
+
+    **Formatting Guidelines:**
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
 
 analyze_microbiome_impact_task:
   description: >
-    Investigate the impact of COVID-19 on the gut microbiome and the gut-brain axis in Long COVID patients.
+    Investigate the impact of COVID-19 on the gut microbiome and the gut-brain axis in Long COVID patients, identifying relevant microbiome-based biomarkers.
+    
+    **Approach:**
+    - Analyze potential biomarkers indicative of gut microbiome alterations in Long COVID.
+    - Evaluate the sensitivity and specificity of identified biomarkers.
+    - Consider both direct (gut microbiome components) and indirect (systemic effects) biomarkers.
+    - Identify potential microbiome-based biomarkers for Long COVID diagnosis or prognosis.
+    - Evaluate the utility of microbial metabolites as systemic biomarkers.
   expected_output: >
     A detailed microbiome analysis report in markdown format including:
     - Characterization of gut microbiome alterations in Long COVID patients.
@@ -430,10 +668,34 @@ analyze_microbiome_impact_task:
     - Potential mechanisms linking microbiome dysbiosis to Long COVID symptoms.
     - Implications for probiotic, prebiotic, or synbiotic interventions.
     - Recommendations for microbiome-targeted therapies and future research directions.
+    - Analysis of potential microbiome-based biomarkers:
+      - Specific microbial species or community profiles associated with Long COVID.
+      - Microbial metabolites as potential systemic biomarkers.
+      - Markers of gut barrier function and intestinal permeability.
+    - Evaluation of biomarker utility:
+      - Diagnostic or prognostic value for Long COVID or specific symptoms.
+      - Correlation with other systemic biomarkers or clinical outcomes.
+      - Potential for guiding microbiome-targeted interventions.
+    - Recommendations for incorporating microbiome analysis and related biomarkers in Long COVID research and management.
+
+    **Formatting Guidelines:**
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
 
 investigate_metabolic_disruptions_task:
   description: >
-    Investigate metabolic disruptions and mitochondrial dysfunction in Long COVID, with a focus on understanding energy production abnormalities.
+    Investigate metabolic disruptions and mitochondrial dysfunction in Long COVID, with a focus on understanding energy production abnormalities and identifying relevant biomarkers.
+    
+    **Approach:**
+    - Analyze potential biomarkers indicative of metabolic abnormalities in Long COVID.
+    - Evaluate the sensitivity and specificity of identified biomarkers.
+    - Consider both direct (metabolic components) and indirect (systemic effects) biomarkers.
+    - Identify and evaluate metabolic and mitochondrial biomarkers specific to Long COVID.
+    - Assess the utility of energy metabolism markers and oxidative stress indicators.
   expected_output: >
     A comprehensive metabolic analysis in markdown format including:
     - Overview of metabolic abnormalities observed in Long COVID patients.
@@ -443,3 +705,21 @@ investigate_metabolic_disruptions_task:
     - Potential metabolic biomarkers for Long COVID.
     - Implications for metabolic and mitochondrial-targeted therapies.
     - Recommendations for metabolic support strategies in Long COVID management.
+    - Detailed analysis of potential metabolic and mitochondrial biomarkers:
+      - Markers of mitochondrial function and dysfunction.
+      - Indicators of energy metabolism pathways.
+      - Oxidative stress markers.
+      - Metabolomic profiles associated with Long COVID.
+    - Evaluation of biomarker utility:
+      - Diagnostic and prognostic value for metabolic disruptions in Long COVID.
+      - Correlation with fatigue and other energy-related symptoms.
+      - Potential for guiding metabolic support strategies or monitoring treatment response.
+    - Recommendations for implementing metabolic biomarkers in Long COVID assessment and management protocols.
+
+    **Formatting Guidelines:**
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
