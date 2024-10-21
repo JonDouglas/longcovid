@@ -41,7 +41,7 @@ conduct_mechanism_research_task:
 
 identify_therapeutics_task:
   description: >
-    **Objective:** Identify and evaluate therapeutics that specifically target the identified Long COVID mechanisms, with a focus on novel, promising, and potentially high-impact interventions, regardless of cost or accessibility. Prioritize experimental and cutting-edge approaches.
+    **Objective:** Identify and evaluate therapeutics that specifically target the identified Long COVID mechanisms, with a focus on novel, promising, and potentially high-impact interventions, regardless of cost or accessibility. Prioritize experimental and cutting-edge approaches over easily accessible supplements.
 
     **Approach:**
     - Conduct systematic searches of pharmacological databases (e.g., DrugBank, FDA databases).
@@ -52,6 +52,8 @@ identify_therapeutics_task:
     - **Prioritize therapeutics targeting the leading hypotheses identified in the previous task.**
     - **Actively seek out experimental and cutting-edge therapies, including those in early stages of development.**
     - **Explicitly search preprint servers such as medRxiv, bioRxiv, and arXiv for the latest unpublished research on potential therapeutics.**
+    - **Look towards future therapeutics in large efforts like Project NextGen or similar initiatives around the world.**
+    - **De-emphasize easily accessible supplements unless they show exceptional promise and strong scientific rationale.**
 
     **Additional Guidelines:**
     - Review acute COVID-19 therapeutic data to identify potential candidates for Long COVID treatment.
@@ -68,6 +70,7 @@ identify_therapeutics_task:
     - Strength of efficacy data from clinical trials or case studies.
     - Stage of development (e.g., preclinical, Phase I-III trials, approved).
     - Safety profile and potential adverse effects.
+    - **Alignment with large-scale research initiatives and future therapeutic directions.**
 
     **Research Focus:**
     {research_focus}
@@ -81,6 +84,7 @@ identify_therapeutics_task:
       - Summary of efficacy data with critical appraisal.
       - Safety profile, including common adverse effects and contraindications.
       - Relevant citations from recent studies or clinical trials.
+      - **Connection to large-scale research initiatives (e.g., Project NextGen), if applicable.**
     - **List of 5 Experimental Cutting-Edge Therapeutics:**
       - Name or working title of the experimental therapy.
       - Description of the innovative approach or technology.
@@ -96,12 +100,16 @@ identify_therapeutics_task:
     - **Recommendations:**
       - Therapeutics suitable for immediate inclusion in clinical trials.
       - Suggestions for further preclinical research where needed.
+      - **Proposed timeline for potential availability of future therapeutics.**
     - **Acute COVID-19 Therapeutic Analysis:**
       - List of acute COVID-19 therapeutics considered and their outcomes.
       - Justification for inclusion of any acute COVID-19 therapeutics that showed no individual effect.
     - **Preprint Analysis:**
       - Summary of key findings from preprint servers, clearly labeled as not yet peer-reviewed.
       - Assessment of potential impact of preprint findings on therapeutic development.
+    - **Large-Scale Initiative Analysis:**
+      - Overview of relevant large-scale research initiatives (e.g., Project NextGen).
+      - Potential impact of these initiatives on Long COVID therapeutic development.
 
 develop_combination_treatments_task:
   description: >
@@ -126,14 +134,15 @@ develop_combination_treatments_task:
     - **Prioritize combinations that include therapeutics targeting the leading and prioritized hypotheses identified earlier.**
     - Assess monotherapies that show exceptional promise and provide strong scientific justification for their consideration.
     - **Plan for adaptive clinical trial designs** to efficiently evaluate multiple treatments.
-    - **Consider cost-effectiveness and accessibility** in different healthcare settings, but prioritize finding effective combinations regardless of initial cost.
     - Emphasize **patient-centered outcomes**, including quality of life and functional improvements.
-    - Address **ethical and equity considerations**, ensuring proposed treatments are inclusive.
     - **Integrate experimental and cutting-edge therapeutics** into combination strategies where scientifically justified.
     - **Draw inspiration from the AIDS/HIV crisis:**
       - Embrace a "cocktail" approach, combining multiple drugs with different mechanisms of action.
       - Consider aggressive combination therapies to target the disease from multiple angles.
       - Be open to unconventional combinations that may not seem intuitive at first.
+    - **Focus on future therapeutics identified in large-scale initiatives like Project NextGen.**
+    - **Validate final lists of combinations against the identified mechanisms.**
+    - **Propose studies for interventions that will be available soon or from other countries.**
 
     **Additional Guidelines:**
     - **Draw inspiration from the AIDS/HIV crisis:**
@@ -144,7 +153,6 @@ develop_combination_treatments_task:
     - Provide clear rationale for any acute COVID-19 therapeutics included in combinations, especially if they were ineffective on their own.
     - Develop detailed **safety monitoring plans**, including post-marketing surveillance.
     - Identify **regulatory pathways** for expedited approval, such as emergency use authorizations.
-    - Include **global health perspectives**, ensuring treatments are applicable in various international contexts.
 
     **Assessment Criteria:**
     - **Innovation and potential impact of each combination, with emphasis on addressing root causes.**
@@ -171,38 +179,39 @@ develop_combination_treatments_task:
       - Proposed dosing regimens and administration guidelines.
       - **Patient stratification insights**, identifying subgroups likely to benefit most.
       - **Pharmacogenomic considerations** if applicable.
-      - **Cost-effectiveness analysis** and accessibility considerations, with emphasis on potential long-term benefits and efficacy regardless of initial cost.
       - **Regulatory pathway** suggestions for approval.
-      - **Ethical and equity considerations**, addressing potential disparities.
       - Inclusion of experimental therapeutics, if applicable, with justification.
+      - **Connection to large-scale research initiatives (e.g., Project NextGen), if relevant.**
     - **Up to 3 high-potential monotherapies** (if applicable):
       - Detailed rationale for consideration as a standalone treatment.
       - Strong scientific evidence supporting its use.
       - Comparison of potential benefits against combination approaches.
       - **Patient-centered outcomes** and quality of life impact.
-      - **Cost-effectiveness** and accessibility.
       - **Regulatory and ethical considerations**.
     - **Prioritization and Feasibility Analysis:**
       - Ranking of combinations and monotherapies based on innovation, potential impact, feasibility, patient-centered outcomes, and ethical considerations.
       - **Emphasis on combinations that include therapeutics targeting root causes and addressing multiple underlying mechanisms.**
       - Justification for any monotherapies included in the prioritization.
+      - **Validation of final lists against identified mechanisms.**
     - **Recommendations for Clinical Evaluation:**
       - Suggestions for pilot studies or inclusion in **adaptive trial designs**.
       - Monitoring strategies for assessing efficacy and safety, including patient-reported outcomes.
       - Detailed **safety monitoring plans** and post-marketing surveillance strategies.
       - **Regulatory considerations** for clinical trial approval.
+      - **Proposed studies for interventions that will be available soon or from other countries.**
     - **Acute COVID-19 Therapeutic Integration:**
       - Explanation of how acute COVID-19 therapeutics are incorporated into combination treatments, if applicable.
       - Justification for including any acute COVID-19 therapeutics that showed no individual effect.
-    - **Global Health and Equity Considerations:**
-      - Discussion on the applicability of treatments in various international contexts.
-      - Strategies to ensure equitable access and minimize health disparities.
     - **Lessons from AIDS/HIV Crisis:**
       - Analysis of how the proposed combination strategies align with successful approaches from the AIDS/HIV treatment paradigm.
       - Discussion on potential long-term benefits of aggressive combination therapies, despite initial costs.
     - **Preprint Analysis:**
       - Summary of key findings from preprint servers related to combination treatments, clearly labeled as not yet peer-reviewed.
       - Assessment of potential impact of preprint findings on combination treatment strategies.
+    - **Future Therapeutics Analysis:**
+      - Overview of promising future therapeutics identified in large-scale initiatives.
+      - Timeline for potential availability and integration into combination strategies.
+      - Recommendations for preparatory research or clinical trial planning.
 
 analyze_data_trends_task:
   description: >
