@@ -198,6 +198,21 @@ class LongCovidCrew():
             verbose=True,
             llm=self.llm
         )
+    
+    @agent
+    def genomics_and_transcriptomics_specialist(self) -> Agent:
+        return Agent(
+            config=self.agents_config['genomics_and_transcriptomics_specialist'],
+            tools=[
+                PubmedQueryRun(),        # Access to PubMed for literature review
+                WebsiteSearchTool(),     # Enables general web searches
+                SerperDevTool(),         # Advanced search capabilities
+                PDFSearchTool(pdf="../mechanisms.pdf"),  # Enables advanced PDF searches
+            ],
+            allow_delegation=False,
+            verbose=True,
+            llm=self.llm
+        )
 
     @task
     def conduct_mechanism_research_task(self) -> Task:
@@ -357,29 +372,43 @@ class LongCovidCrew():
             agent=self.science_writer(),
             context=[
                 self.conduct_mechanism_research_task(),
-                self.identify_therapeutics_task(),
-                self.develop_combination_treatments_task(),
-                self.analyze_data_trends_task(),
-                self.ensure_quality_and_alignment_task(),
-                self.update_shared_memory_task(),
+                self.analyze_epidemiological_data_task(),
+                self.investigate_immune_responses_task(),
                 self.explore_viral_persistence_task(),
                 self.assess_cardiovascular_complications_task(),
                 self.investigate_neurological_manifestations_task(),
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
+                self.identify_therapeutics_task(),
+                self.develop_combination_treatments_task(),
+                self.analyze_data_trends_task(),
+                self.update_shared_memory_task(),
+                self.ensure_quality_and_alignment_task(),
+                self.study_transcriptomics_task(),
+                self.investigate_NK_and_T_cell_dynamics_task(),
+                self.research_latent_viral_infections_task(),
+                self.analyze_spike_protein_translocation_task(),
+                self.apply_advanced_immunological_techniques_task(),
             ],
             dependencies=[
                 self.conduct_mechanism_research_task(),
-                self.identify_therapeutics_task(),
-                self.develop_combination_treatments_task(),
-                self.analyze_data_trends_task(),
-                self.ensure_quality_and_alignment_task(),
-                self.update_shared_memory_task(),
+                self.analyze_epidemiological_data_task(),
+                self.investigate_immune_responses_task(),
                 self.explore_viral_persistence_task(),
                 self.assess_cardiovascular_complications_task(),
                 self.investigate_neurological_manifestations_task(),
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
+                self.identify_therapeutics_task(),
+                self.develop_combination_treatments_task(),
+                self.analyze_data_trends_task(),
+                self.update_shared_memory_task(),
+                self.ensure_quality_and_alignment_task(),
+                self.study_transcriptomics_task(),
+                self.investigate_NK_and_T_cell_dynamics_task(),
+                self.research_latent_viral_infections_task(),
+                self.analyze_spike_protein_translocation_task(),
+                self.apply_advanced_immunological_techniques_task(),
             ],
             output_file='reports/final/compile_final_report_task.md'
         )
@@ -399,10 +428,16 @@ class LongCovidCrew():
                 self.investigate_neurological_manifestations_task(),
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
-                # Removed self.compile_final_report_task() to prevent circular dependency
+                # Add these missing tasks:
+                self.analyze_epidemiological_data_task(),
+                self.investigate_immune_responses_task(),
             ],
             dependencies=[
-                # Include dependencies if necessary
+                # Add relevant dependencies, for example:
+                self.conduct_mechanism_research_task(),
+                self.analyze_epidemiological_data_task(),
+                self.investigate_immune_responses_task(),
+                # ... other relevant tasks ...
             ]
         )
     
@@ -479,10 +514,66 @@ class LongCovidCrew():
         return Task(
             config=self.tasks_config['plan_future_research_task'],
             agent=self.lead_medical_researcher(),
+            # Add context for better task execution:
+            context=[
+                self.compile_final_report_task(),
+                self.ensure_quality_and_alignment_task(),
+                # ... other relevant tasks ...
+            ],
             dependencies=[
                 self.compile_final_report_task(),
                 self.ensure_quality_and_alignment_task(),
             ]
+        )
+
+    @task
+    def study_transcriptomics_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['study_transcriptomics_task'],
+            agent=self.genomics_and_transcriptomics_specialist(),
+            context=[self.conduct_mechanism_research_task()],
+            dependencies=[self.conduct_mechanism_research_task()],
+            output_file='reports/mechanisms/study_transcriptomics_task.md'
+        )
+
+    @task
+    def investigate_NK_and_T_cell_dynamics_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['investigate_NK_and_T_cell_dynamics_task'],
+            agent=self.immunology_specialist(),
+            context=[self.conduct_mechanism_research_task()],
+            dependencies=[self.conduct_mechanism_research_task()],
+            output_file='reports/mechanisms/investigate_NK_and_T_cell_dynamics_task.md'
+        )
+
+    @task
+    def research_latent_viral_infections_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['research_latent_viral_infections_task'],
+            agent=self.virology_expert(),
+            context=[self.conduct_mechanism_research_task()],
+            dependencies=[self.conduct_mechanism_research_task()],
+            output_file='reports/mechanisms/research_latent_viral_infections_task.md'
+        )
+
+    @task
+    def analyze_spike_protein_translocation_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['analyze_spike_protein_translocation_task'],
+            agent=self.virology_expert(),
+            context=[self.conduct_mechanism_research_task(), self.investigate_immune_responses_task()],
+            dependencies=[self.conduct_mechanism_research_task(), self.investigate_immune_responses_task()],
+            output_file='reports/mechanisms/analyze_spike_protein_translocation_task.md'
+        )
+
+    @task
+    def apply_advanced_immunological_techniques_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['apply_advanced_immunological_techniques_task'],
+            agent=self.immunology_specialist(),
+            context=[self.conduct_mechanism_research_task(), self.investigate_immune_responses_task()],
+            dependencies=[self.conduct_mechanism_research_task(), self.investigate_immune_responses_task()],
+            output_file='reports/mechanisms/apply_advanced_immunological_techniques_task.md'
         )
 
     @crew
@@ -502,8 +593,10 @@ class LongCovidCrew():
                 self.neurology_expert(),
                 self.microbiome_specialist(),
                 self.metabolism_expert(),
+                self.genomics_and_transcriptomics_specialist(),
             ],
             tasks=[
+                # Research and analysis tasks
                 self.conduct_mechanism_research_task(),
                 self.analyze_epidemiological_data_task(),
                 self.investigate_immune_responses_task(),
@@ -512,17 +605,24 @@ class LongCovidCrew():
                 self.investigate_neurological_manifestations_task(),
                 self.analyze_microbiome_impact_task(),
                 self.investigate_metabolic_disruptions_task(),
+                self.study_transcriptomics_task(),
+                self.investigate_NK_and_T_cell_dynamics_task(),
+                self.research_latent_viral_infections_task(),
+                self.analyze_spike_protein_translocation_task(),
+                self.apply_advanced_immunological_techniques_task(),
                 self.identify_therapeutics_task(),
                 self.develop_combination_treatments_task(),
                 self.analyze_data_trends_task(),
+                
+                # Coordination and quality control tasks
                 self.update_shared_memory_task(),
                 self.ensure_quality_and_alignment_task(),
-                self.compile_final_report_task(),
                 self.facilitate_collaboration_task(),
-                self.plan_future_research_task()
+                
+                # Final tasks
+                self.compile_final_report_task(),
+                self.plan_future_research_task(),
             ],
             process=Process.sequential,
             verbose=True,
         )
-
-
