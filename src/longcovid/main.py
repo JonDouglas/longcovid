@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 import sys
+import time
 from longcovid.crew import LongCovidCrew
 
 
 def run():
+    start_time = time.time()
+    
     inputs = {
         'research_focus': """
 research_focus:
@@ -189,6 +192,10 @@ research_focus:
     """
     }
     LongCovidCrew().crew().kickoff(inputs=inputs)
+    
+    end_time = time.time()
+    execution_time = end_time - start_time
+    print(f"Execution time: {execution_time:.2f} seconds")
 
 if __name__ == "__main__":
     run()
