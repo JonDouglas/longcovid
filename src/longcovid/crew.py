@@ -3,6 +3,7 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool, WebsiteSearchTool, PDFSearchTool
 from langchain_openai import ChatOpenAI
 from langchain_community.tools.pubmed.tool import PubmedQueryRun
+from langchain_community.tools.semanticscholar.tool import SemanticScholarQueryRun
 
 @CrewBase
 class LongCovidCrew():
@@ -18,10 +19,11 @@ class LongCovidCrew():
         return Agent(
             config=self.agents_config['lead_medical_researcher'],
             tools=[
-                PubmedQueryRun(),     # Access to PubMed for literature review
-                WebsiteSearchTool(),      # Enables general web searches
+                PubmedQueryRun(),
+                SemanticScholarQueryRun(),
+                WebsiteSearchTool(),
                 SerperDevTool(),
-                PDFSearchTool(pdf="../mechanisms.pdf"),       # Enables advanced web search capabilities
+                PDFSearchTool(pdf="../mechanisms.pdf"),
             ],
             allow_delegation=False,
             verbose=True,
@@ -34,6 +36,7 @@ class LongCovidCrew():
             config=self.agents_config['immunology_specialist'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -49,6 +52,7 @@ class LongCovidCrew():
             config=self.agents_config['virology_expert'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -64,6 +68,7 @@ class LongCovidCrew():
             config=self.agents_config['epidemiology_analyst'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -79,6 +84,7 @@ class LongCovidCrew():
             config=self.agents_config['cardiology_specialist'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -94,6 +100,7 @@ class LongCovidCrew():
             config=self.agents_config['neurology_expert'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -109,6 +116,7 @@ class LongCovidCrew():
             config=self.agents_config['microbiome_specialist'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -124,6 +132,7 @@ class LongCovidCrew():
             config=self.agents_config['metabolism_expert'],
             tools=[
                 PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
                 SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
@@ -138,10 +147,11 @@ class LongCovidCrew():
         return Agent(
             config=self.agents_config['pharmacology_expert'],
             tools=[
-                PubmedQueryRun(),     # Access to PubMed for pharmacological studies
-                WebsiteSearchTool(),      # Enables web searches for drug information
+                PubmedQueryRun(),
+                SemanticScholarQueryRun(),
+                WebsiteSearchTool(),
                 SerperDevTool(),
-                PDFSearchTool(pdf="../mechanisms.pdf"),       # Advanced searches for clinical trials and drug databases
+                PDFSearchTool(pdf="../mechanisms.pdf"),
             ],
             allow_delegation=False,
             verbose=True,
@@ -153,7 +163,10 @@ class LongCovidCrew():
         return Agent(
             config=self.agents_config['treatment_strategy_analyst'],
             tools=[
+                PubmedQueryRun(),
+                SemanticScholarQueryRun(),
                 WebsiteSearchTool(),
+                SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),       # Optional: Enables searches for treatment guidelines
                 # You may add Drug Interaction Checker tools if available
             ],
@@ -167,6 +180,10 @@ class LongCovidCrew():
         return Agent(
             config=self.agents_config['data_analyst'],
             tools=[
+                PubmedQueryRun(),
+                SemanticScholarQueryRun(),
+                WebsiteSearchTool(),
+                SerperDevTool(),
                 PDFSearchTool(pdf="../mechanisms.pdf"),
             ],  # Statistical tools can be integrated if needed
             allow_delegation=False,
@@ -189,12 +206,13 @@ class LongCovidCrew():
         return Agent(
             config=self.agents_config['science_writer'],
             tools=[
-                PubmedQueryRun(),     # Access to PubMed for pharmacological studies
-                WebsiteSearchTool(),      # Enables web searches for drug information
+                PubmedQueryRun(),
+                SemanticScholarQueryRun(),
+                WebsiteSearchTool(),
                 SerperDevTool(),
-                PDFSearchTool(pdf="../mechanisms.pdf"),       # Advanced searches for clinical trials and drug databases
+                PDFSearchTool(pdf="../mechanisms.pdf"),
             ],
-            allow_delegation=False,  # Can delegate tasks and facilitate collaboration
+            allow_delegation=False,
             verbose=True,
             llm=self.llm
         )
@@ -204,10 +222,11 @@ class LongCovidCrew():
         return Agent(
             config=self.agents_config['genomics_and_transcriptomics_specialist'],
             tools=[
-                PubmedQueryRun(),        # Access to PubMed for literature review
-                WebsiteSearchTool(),     # Enables general web searches
-                SerperDevTool(),         # Advanced search capabilities
-                PDFSearchTool(pdf="../mechanisms.pdf"),  # Enables advanced PDF searches
+                PubmedQueryRun(),
+                SemanticScholarQueryRun(),
+                WebsiteSearchTool(),
+                SerperDevTool(),
+                PDFSearchTool(pdf="../mechanisms.pdf"),
             ],
             allow_delegation=False,
             verbose=True,
@@ -626,3 +645,4 @@ class LongCovidCrew():
             process=Process.sequential,
             verbose=True,
         )
+

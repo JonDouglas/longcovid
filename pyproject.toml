@@ -6,8 +6,9 @@ authors = ["Jon Douglas <jondouglasdev@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "<=3.13,>=3.10"
-crewai = "^0.74.2"
+crewai = "^0.76.2"
 xmltodict = "^0.14.2"
+semanticscholar = "^0.8.4"
 
 [tool.poetry.scripts]
 longcovid = "longcovid.main:run"
