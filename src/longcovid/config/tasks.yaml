@@ -28,7 +28,7 @@ conduct_mechanism_research_task:
     A detailed report in markdown format including:
     - **Executive Summary:** Key findings and most promising hypotheses, highlighting how they relate to or expand upon the information in the mechanisms PDF.
     - **Analysis of Mechanisms PDF:** Summary of key points and hypotheses from the provided document.
-    - **List of up to 20 leading hypotheses**, each containing:
+    - **List of up to {num_hypotheses} leading hypotheses**, each containing:
       - Detailed description of the mechanism.
       - Summary of supporting evidence with critical appraisal.
       - Comparison to information found in the mechanisms PDF, if applicable.
@@ -43,6 +43,8 @@ conduct_mechanism_research_task:
       - List of databases, journals, and **preprint servers** consulted.
       - **Summary of key findings from preprint servers, clearly labeled as not yet peer-reviewed.**
       - **Timeline of major research developments, emphasizing recent breakthroughs.**
+
+    {format_guidelines}
 
 identify_therapeutics_task:
   description: >
@@ -94,7 +96,7 @@ identify_therapeutics_task:
     {research_focus}
   expected_output: >
     A comprehensive dossier in markdown format including:
-    - **List of up to 25 therapeutics**, prioritizing novel and potentially high-impact interventions, each with:
+    - **List of up to {num_therapeutics} therapeutics**, prioritizing novel and potentially high-impact interventions, each with:
       - Name (generic and trade names).
       - Pharmacological class and mechanism of action.
       - Targeted Long COVID mechanism(s), **highlighting alignment with leading hypotheses**.
@@ -106,7 +108,7 @@ identify_therapeutics_task:
       - **Biomarkers associated with the therapeutic, if applicable, for patient stratification.**
       - Relevant citations from recent studies or clinical trials.
       - **Connection to large-scale research initiatives (e.g., Project NextGen), if applicable.**
-    - **List of 7 Experimental Cutting-Edge Therapeutics:**
+    - **List of {num_experimental_therapeutics} Experimental Cutting-Edge Therapeutics:**
       - Name or working title of the experimental therapy.
       - Description of the innovative approach or technology.
       - Theoretical mechanism of action related to Long COVID.
@@ -137,6 +139,8 @@ identify_therapeutics_task:
     - **Mechanism Alignment Analysis:**
       - Detailed explanation of how each therapeutic aligns with mechanisms described in the PDF.
       - **Identification of any novel mechanisms discovered through systems biology not covered in the PDF.**
+
+    {format_guidelines}
 
 develop_combination_treatments_task:
   description: >
@@ -205,7 +209,7 @@ develop_combination_treatments_task:
     {research_focus}
   expected_output: >
     A strategic proposal in markdown format including:
-    - **Set of up to 20 innovative combination treatments**, each detailing:
+    - **Set of up to {num_combinations} innovative combination treatments**, each detailing:
       - Components of the combination (therapeutics/interventions).
       - Rationale for the combination, including mechanistic synergy.
       - **Explanation of how the combination targets root causes of Long COVID.**
@@ -222,7 +226,7 @@ develop_combination_treatments_task:
       - **Regulatory pathway** suggestions for approval.
       - Inclusion of experimental therapeutics, if applicable, with justification.
       - **Connection to large-scale research initiatives (e.g., Project NextGen), if relevant.**
-    - **Up to 5 high-potential monotherapies** (if applicable):
+    - **High-potential monotherapies** (if applicable):
       - Detailed rationale for consideration as a standalone treatment.
       - Strong scientific evidence supporting its use.
       - **Inclusion of patient advocacy group insights and real-world evidence.**
@@ -262,6 +266,8 @@ develop_combination_treatments_task:
       - Include perspectives from patient advocacy groups on proposed combinations.
       - Incorporate real-world data supporting the efficacy and safety of combinations.
 
+    {format_guidelines}
+
 analyze_data_trends_task:
   description: >
     **Objective:** Process and analyze all collected data to identify significant trends, patterns, and correlations that support or challenge the team's conclusions.
@@ -296,6 +302,8 @@ analyze_data_trends_task:
       - How the data supports or refines hypotheses.
       - Recommendations for adjusting research focus or clinical strategies.
 
+    {format_guidelines}
+
 compile_final_report_task:
   description: >
     **Objective:** Compile and synthesize all findings from previous tasks into a cohesive and comprehensive final report suitable for dissemination to stakeholders, covering all identified mechanisms, treatments, and data analysis related to Long COVID.
@@ -320,13 +328,7 @@ compile_final_report_task:
     - Microbiome impact
     - Metabolic disruptions
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
     **Research Focus:**
     {research_focus}
@@ -415,6 +417,8 @@ compile_final_report_task:
 
     The report should provide a comprehensive overview of all aspects of Long COVID investigated, synthesizing the findings from all previous tasks into a cohesive narrative. It should be written in clear, accessible language while maintaining scientific rigor, and should offer valuable insights for both researchers and healthcare practitioners. Throughout the report, there should be a clear emphasis on the most recent research findings and emerging trends in Long COVID research.
 
+    {format_guidelines}
+
 facilitate_collaboration_task:
   description: >
     **Objective:** Coordinate and optimize collaboration among AI agents to ensure efficient progress and alignment with project objectives.
@@ -450,6 +454,8 @@ facilitate_collaboration_task:
     - **Optimization Recommendations:**
       - Suggestions for improving inter-agent collaboration and workflow efficiency.
 
+    {format_guidelines}
+
 update_shared_memory_task:
   description: >
     **Objective:** Update and maintain the shared memory to ensure all agents have access to the most current and comprehensive information.
@@ -472,6 +478,8 @@ update_shared_memory_task:
       - Documentation of changes or updates made.
     - **Update Summaries:**
       - Concise overviews of significant updates for efficient agent processing.
+
+    {format_guidelines}
 
 ensure_quality_and_alignment_task:
   description: >
@@ -505,6 +513,8 @@ ensure_quality_and_alignment_task:
       - Specific suggestions for improvements or adjustments to ensure quality and alignment.
     - **Overall Quality Evaluation:**
       - General assessment of the collective output quality and alignment with project goals.
+
+    {format_guidelines}
 
 plan_future_research_task:
   description: >
@@ -546,6 +556,8 @@ plan_future_research_task:
     - **Recommendations for Implementation:**
       - Suggested funding sources or partnerships.
       - Next steps for proposal development and submission.
+
+    {format_guidelines}
 
 analyze_epidemiological_data_task:
   description: >
@@ -605,13 +617,7 @@ investigate_immune_responses_task:
       - Implications for understanding Long COVID pathogenesis.
       - Recommendations for integrating these techniques into ongoing research.
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
 explore_viral_persistence_task:
   description: >
@@ -664,13 +670,7 @@ explore_viral_persistence_task:
     - Implications of viral persistence for long-term health outcomes in Long COVID patients.
     - Proposed combination therapy strategies incorporating antivirals.
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
 assess_cardiovascular_complications_task:
   description: >
@@ -712,13 +712,7 @@ assess_cardiovascular_complications_task:
       - Evaluation of their potential for early detection or risk stratification.
       - Comparison with traditional cardiovascular biomarkers in the context of Long COVID.
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
 investigate_neurological_manifestations_task:
   description: >
@@ -751,13 +745,7 @@ investigate_neurological_manifestations_task:
       - Potential for monitoring disease progression or treatment response.
     - Recommendations for implementing neurological biomarkers in clinical assessment and research protocols.
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
 analyze_microbiome_impact_task:
   description: >
@@ -788,13 +776,7 @@ analyze_microbiome_impact_task:
       - Potential for guiding microbiome-targeted interventions.
     - Recommendations for incorporating microbiome analysis and related biomarkers in Long COVID research and management.
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
 investigate_metabolic_disruptions_task:
   description: >
@@ -826,13 +808,7 @@ investigate_metabolic_disruptions_task:
       - Potential for guiding metabolic support strategies or monitoring treatment response.
     - Recommendations for implementing metabolic biomarkers in Long COVID assessment and management protocols.
 
-    **Formatting Guidelines:**
-    - Use Markdown format for the entire report.
-    - Do not use code blocks (``` or ~~~) anywhere in the report.
-    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
-    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
-    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
-    - For citations, use a consistent format such as [Author, Year] in the text.
+    {format_guidelines}
 
 study_transcriptomics_task:
   description: >
@@ -859,6 +835,8 @@ study_transcriptomics_task:
     - Relevant visualizations such as heatmaps and pathway diagrams.
     - Comprehensive references to the datasets and tools used.
 
+    {format_guidelines}
+
 investigate_NK_and_T_cell_dynamics_task:
   description: >
     **Objective:** Examine the roles of Natural Killer (NK) cells and T cells in Long COVID, focusing on their activity, exhaustion markers, and potential as therapeutic targets.
@@ -880,6 +858,8 @@ investigate_NK_and_T_cell_dynamics_task:
     - Therapeutic strategies targeting these immune cells.
     - Recommendations for clinical interventions or further research.
     - Relevant citations from recent studies.
+
+    {format_guidelines}
 
 research_latent_viral_infections_task:
   description: >
@@ -903,6 +883,8 @@ research_latent_viral_infections_task:
     - Recommendations for clinical practice and future research.
     - Comprehensive list of references.
 
+    {format_guidelines}
+
 analyze_spike_protein_translocation_task:
   description: >
     **Objective:** Investigate the translocation of SARS-CoV-2 spike protein into host cells and tissues, and its potential role in Long COVID pathogenesis.
@@ -925,6 +907,8 @@ analyze_spike_protein_translocation_task:
     - Recommendations for diagnostic testing and monitoring.
     - Relevant citations.
 
+    {format_guidelines}
+
 apply_advanced_immunological_techniques_task:
   description: >
     **Objective:** Utilize cutting-edge immunological techniques developed since the 1980s to investigate immune dysfunctions in Long COVID.
@@ -946,4 +930,6 @@ apply_advanced_immunological_techniques_task:
     - Implications for understanding Long COVID pathogenesis.
     - Recommendations for integrating these techniques into ongoing research.
     - List of specialized laboratories or collaborators.
+
+    {format_guidelines}
 

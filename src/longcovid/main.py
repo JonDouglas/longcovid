@@ -3,199 +3,123 @@ import sys
 import time
 from longcovid.crew import LongCovidCrew
 
+inputs = {
+    'num_hypotheses': 15,
+    'num_therapeutics': 20, 
+    'num_experimental_therapeutics': 5,
+    'num_combinations': 10,
+    'format_guidelines': """
+    - Use Markdown format for the entire report.
+    - Do not use code blocks (``` or ~~~) anywhere in the report.
+    - Use appropriate Markdown syntax for headings, subheadings, bullet points, and numbered lists.
+    - For any figures or diagrams, provide detailed text descriptions in lieu of actual images.
+    - Use Markdown syntax for emphasis (e.g., *italics*, **bold**) where appropriate.
+    - For citations, use a consistent format such as [Author, Year] in the text.
+    """,
+    'research_focus': """
+    research_focus:
+      title: >
+        Critical Investigation of Long COVID Mechanisms and Treatment Development
+
+      description: >
+        Primary objective: Identify and develop effective treatments for Long COVID through:
+
+        - Uncovering the core pathological mechanisms of Long COVID
+        - Identifying and testing promising therapeutics, including experimental treatments
+        - Developing synergistic combination treatments that target multiple mechanisms
+        - Testing unconventional approaches and experimental therapies when justified
+
+        The research will prioritize:
+        - Any treatment showing potential efficacy, regardless of current approval status
+        - Novel combination approaches, even if individual components showed limited efficacy
+        - Experimental therapeutics that target newly discovered mechanisms
+        - Rapid testing and validation of promising treatments
+        
+      specific_objectives:
+        - Identify up to {num_hypotheses} key pathological mechanisms of Long COVID
+        - Develop and test up to {num_therapeutics} potential therapeutics
+        - Explore {num_experimental_therapeutics} experimental treatments, including those in early development
+        - Create up to {num_combinations} strategic combination treatments
+        - Test treatments showing promise, regardless of conventional medical paradigms
+
+      data_sources:
+        - Latest research findings, including pre-prints and early-stage studies
+        - Experimental treatment protocols and emerging therapies
+        - Clinical trial data, including failed trials for mechanism insights
+        - Drug interaction databases for combination treatment development
+        - Cutting-edge research from any field that might offer treatment insights
+    """
+}
+
+def validate_inputs(inputs):
+    """
+    Validate required input parameters.
+    """
+    required_params = [
+        'num_hypotheses',
+        'num_therapeutics',
+        'num_experimental_therapeutics',
+        'num_combinations',
+        'format_guidelines',
+        'research_focus'
+    ]
+    
+    missing = [param for param in required_params if param not in inputs]
+    if missing:
+        raise ValueError(f"Missing required input parameters: {', '.join(missing)}")
+    
+    # Validate numeric parameters
+    numeric_params = [
+        'num_hypotheses',
+        'num_therapeutics', 
+        'num_experimental_therapeutics',
+        'num_combinations'
+    ]
+    for param in numeric_params:
+        if not isinstance(inputs[param], int) or inputs[param] <= 0:
+            raise ValueError(f"{param} must be a positive integer")
 
 def run():
-    start_time = time.time()
-    
-    inputs = {
-        'research_focus': """
-research_focus:
-  title: >
-    Comprehensive Investigation of Leading Hypotheses, Novel Therapeutics, and Innovative Combination Treatments for Long COVID
-
-  description: >
-    The objective is to conduct a thorough multidisciplinary research project culminating in a comprehensive report. This report will focus on:
-
-    - Identifying and critically evaluating the leading hypotheses of Long COVID mechanisms, including immunological, virological, cardiovascular, neurological, microbiome-related, and metabolic aspects.
-    - Identifying, evaluating, and prioritizing novel and potentially high-impact therapeutics that address these mechanisms.
-    - Developing innovative combination treatment strategies that target multiple mechanisms of Long COVID, with detailed rationales, allowing for repetition of highly promising therapeutics in different combinations when scientifically justified.
-    - Providing mechanistic explanations and supporting evidence for each therapeutic and combination treatment.
-    - Analyzing epidemiological and clinical data to identify trends, patterns, and correlations that support the conclusions.
-    - Compiling actionable recommendations for clinical practice and future research directions, informed by expert opinions.
-    - Gathering and integrating expert opinions on novel therapeutics and combination treatments.
-
-    The research emphasizes pathological findings and mechanisms of action, excluding symptom management unless directly related. The final deliverable will be a detailed report on innovative treatments and their rationales, suitable for dissemination to medical professionals and stakeholders.
-
-    Additionally, the research will:
-    - Review acute COVID-19 therapeutic data to identify potential candidates for Long COVID treatment.
-    - Exclude therapeutics that showed no effect in acute COVID-19 trials unless they meet one of the following conditions
-      - They have potential for combination effects with other treatments.
-      - There is a strong mechanistic rationale for their efficacy in Long COVID despite lack of effect in acute cases.
-    - Document the rationale for including any acute COVID-19 therapeutics that were ineffective on their own.
-    - Consider recently approved therapeutics used throughout the pandemic and anticipate upcoming treatments.
-    - Include FDA-approved medicines where necessary.
-
-  areas_of_interest:
-    - Leading hypotheses of Long COVID mechanisms, including immune dysfunction, viral persistence, cardiovascular complications, neurological manifestations, gut microbiome alterations, and metabolic disruptions
-    - Novel and potentially high-impact therapeutics targeting identified mechanisms
-    - Innovative combination treatments addressing multiple mechanisms
-    - Mechanistic rationales for novel therapeutics and combinations
-    - Recent research developments and cutting-edge clinical trials
-    - Epidemiological analysis of Long COVID prevalence, risk factors, and distribution
-    - Data analysis of trends in Long COVID research
-    - Recommendations for clinical application and future research
-    - Expert opinions on novel therapeutics and combination treatments
-
-  specific_objectives:
-    - Identify and critically evaluate up to 15 leading hypotheses of Long COVID mechanisms, encompassing various physiological systems.
-    - Identify, evaluate, and prioritize up to 20 novel therapeutics targeting these mechanisms, focusing on innovative and potentially high-impact interventions.
-    - Explore and assess 5 experimental, cutting-edge therapeutics that push the boundaries of conventional medicine.
-    - Develop and propose up to 10 innovative combination treatment strategies that target multiple mechanisms of Long COVID, allowing for repetition of highly promising therapeutics when scientifically justified.
-    - Provide detailed mechanistic rationales and supporting evidence for each novel therapeutic and combination treatment.
-    - Analyze epidemiological and clinical data to identify significant trends, patterns, and correlations supporting the team's conclusions on innovative approaches.
-    - Gather and synthesize expert opinions on novel therapeutics and combination treatments for Long COVID, incorporating their insights into the final report.
-    - Compile a comprehensive report with findings, detailed rationales, and actionable recommendations for novel treatments.
-    - Review and analyze data from acute COVID-19 therapeutic trials for potential application in Long COVID treatment.
-    - Identify and justify the inclusion of any acute COVID-19 therapeutics that showed no individual effect but have potential in combination treatments.
-
-  data_sources:
-    - PubMed and recent peer-reviewed journals (focus on publications within the last 1-2 years, prioritizing the most recent studies).
-    - Clinical trial databases (e.g., ClinicalTrials.gov, WHO International Clinical Trials Registry Platform), with emphasis on ongoing and recently completed trials.
-    - FDA drug databases and pharmacological resources (e.g., DrugBank, EMA databases), focusing on the most recent approvals and updates.
-    - Statistical data from the most recent epidemiological and clinical research studies.
-    - The latest guidelines and protocols for innovative treatment strategies from reputable health organizations.
-    - Up-to-date drug interaction databases for assessing combination therapy safety.
-    - The most recent reports from international health agencies (e.g., WHO, NIH, CDC).
-    - Latest acute COVID-19 clinical trial results and meta-analyses.
-    - Expert interviews, surveys, or panels involving leading researchers and clinicians in Long COVID, focusing on their most recent findings and opinions.
-    - Information on recently approved therapeutics and upcoming treatments, including pre-print articles and conference proceedings for cutting-edge developments.
-
-  deliverables:
-    - A comprehensive and detailed final report in markdown format (without '```'), including:
-      - Title Page:
-        - Project title emphasizing the focus on novel and innovative treatments.
-        - Names of all contributors and their respective roles.
-        - Affiliations and contact information.
-        - Date of completion.
-      - Table of Contents:
-        - Organized listing of all sections and subsections with corresponding page numbers.
-      - Executive Summary:
-        - Concise overview of the entire report.
-        - Brief background on Long COVID and the significance of innovative research.
-        - Summary of key findings across mechanisms, novel therapeutics, and innovative combination treatments.
-        - High-level recommendations for clinical practice and future research, emphasizing novel approaches.
-        - Emphasis on the impact and potential benefits of the proposed innovative strategies.
-      - Introduction:
-        - Background information on Long COVID, including prevalence, symptoms, and current challenges.
-        - Clear statement of the research aims and questions, highlighting the focus on novel interventions.
-        - Explanation of the scope and limitations of the study.
-        - Significance and potential impact of innovative approaches on patient outcomes and healthcare practices.
-        - Brief outline of the report structure.
-      - Methodology:
-        - Description of the overall research design and interdisciplinary approach.
-        - Detailed literature review methods, including databases searched, keywords used, and inclusion/exclusion criteria for identifying novel interventions.
-        - Data collection and analysis procedures.
-        - Evaluation criteria for assessing mechanisms and novel therapeutics.
-        - Methods for collecting expert opinions, such as surveys, interviews, or panels, and how these will be integrated into the analysis.
-      - Findings:
-        - Section A: Long COVID Mechanisms
-          - Detailed analysis of up to 15 leading hypotheses.
-          - For each hypothesis:
-            - In-depth description of the mechanism.
-            - Summary of supporting evidence with critical appraisal.
-            - Diagrams or illustrations where applicable.
-            - Clinical relevance and implications.
-            - Identification of research gaps and potential for novel interventions.
-            - Relevant citations with complete publication details.
-        - Section B: Evaluation of Novel Therapeutics
-          - Comprehensive analysis of up to 20 novel therapeutics.
-          - For each therapeutic:
-            - Name (generic and trade names).
-            - Pharmacological class and innovative mechanism of action.
-            - Targeted Long COVID mechanism(s).
-            - Current development stage or FDA approval status.
-            - Summary of efficacy data with critical appraisal, emphasizing novelty and potential impact.
-            - Safety profile, including common adverse effects and contraindications.
-            - Potential for repurposing existing drugs in innovative ways.
-            - Relevant citations from recent studies or cutting-edge clinical trials.
-          - Prioritization Matrix:
-            - Novel therapeutics ranked based on innovation, potential impact, and feasibility.
-            - Justification for prioritization decisions, emphasizing therapeutics targeting mechanisms with multiple promising candidates.
-          - Analysis of acute COVID-19 therapeutics:
-            - List of acute COVID-19 therapeutics considered and their outcomes.
-            - Justification for inclusion of any acute COVID-19 therapeutics that showed no individual effect.
-        - Section C: Innovative Combination Treatment Strategies
-          - Detailed proposals of up to 10 innovative combination treatments targeting multiple mechanisms.
-          - For each combination:
-            - Components of the combination (novel therapeutics/interventions).
-            - Rationale for the combination, including mechanistic synergy and innovative approach.
-            - Explanation of how combining multiple therapeutics targeting the same or different hypotheses may enhance efficacy.
-            - Potential benefits over monotherapy, highlighting the innovative aspects.
-            - Safety considerations and interaction assessments.
-            - Proposed dosing regimens and administration guidelines.
-            - Feasibility and practical considerations for implementing novel combinations.
-            - Relevant references supporting the innovative approach.
-          - Integration of acute COVID-19 therapeutics:
-            - Explanation of how acute COVID-19 therapeutics are incorporated into combination treatments, if applicable.
-            - Justification for including any acute COVID-19 therapeutics that showed no individual effect.
-        - Section D: Expert Opinions
-          - Summaries of expert opinions on novel therapeutics and combination treatments for Long COVID.
-          - Analysis of consensus and differing views among experts.
-          - Integration of expert insights into the proposed treatment strategies.
-        - Mechanistic Explanations and Supporting Evidence
-          - Integration of findings showing how novel therapeutics and innovative combinations address specific mechanisms.
-          - Detailed pathways illustrating innovative therapeutic actions.
-          - Discussion of multiple novel therapeutics targeting the same hypothesis and the potential advantages.
-      - Data Analysis:
-        - Statistical summaries, including descriptive and inferential statistics.
-        - Visualizations such as graphs, charts, network diagrams, and timelines.
-        - Interpretation of significant trends, patterns, and correlations, with a focus on novel findings.
-        - Identification of significant correlations or unexpected findings that support innovative approaches.
-        - Limitations of data and impact on interpretations of novel interventions.
-      - Discussion:
-        - Synthesis of findings and how they answer the research questions, emphasizing innovative aspects.
-        - Comparison with existing literature, highlighting the novelty of the proposed approaches.
-        - Clinical implications and recommendations for clinicians, focusing on implementing novel treatments.
-        - Research implications and directions for future studies on innovative interventions.
-        - Limitations of the study and potential biases in assessing novel approaches.
-      - Conclusions and Recommendations:
-        - Recap of the most important findings, emphasizing novel and potentially high-impact interventions.
-        - Actionable recommendations for clinicians, researchers, and policymakers, prioritizing innovative approaches and informed by expert opinions.
-        - Prioritization of novel therapeutics and innovative combinations for further investigation or clinical trials.
-      - References:
-        - Complete list of all sources cited, following a consistent citation format.
-      - Appendices:
-        - Appendix A: Search strategies and keywords used for identifying novel interventions.
-        - Appendix B: List of databases and journals consulted for cutting-edge research.
-        - Appendix C: Detailed data tables supporting the findings on novel therapeutics.
-        - Appendix D: Methodological details for assessing innovative approaches.
-        - Appendix E: Supplementary figures and diagrams illustrating novel mechanisms and interventions.
-        - Appendix F: Transcripts or summaries of expert interviews or surveys.
-    - Future research proposal outlining potential studies to address identified gaps and unanswered questions, including:
-      - Executive Summary:
-        - Overview of proposed innovative research initiatives.
-      - Detailed Proposals for Each Study:
-        - Background and significance, emphasizing the need for novel approaches.
-        - Specific aims and hypotheses for innovative interventions.
-        - Research design and methods for investigating novel therapeutics.
-        - Expected outcomes and potential impact of innovative treatments.
-        - Timeline and milestones for developing and testing novel interventions.
-        - Budget estimates with justification for innovative research approaches.
-      - Justification:
-        - How each proposal addresses identified gaps with novel solutions, supported by expert opinions.
-        - Potential to advance knowledge or improve patient outcomes through innovative treatments.
-      - Feasibility Analysis:
-        - Assessment of resource availability for novel research approaches.
-      - Recommendations for Implementation:
-        - Suggested funding sources or partnerships for innovative research.
-        - Next steps for proposal development and submission of cutting-edge studies.
     """
-    }
+    Run the crew.
+    """
+    validate_inputs(inputs)
+    start_time = time.time()
     LongCovidCrew().crew().kickoff(inputs=inputs)
     
     end_time = time.time()
     execution_time = end_time - start_time
     print(f"Execution time: {execution_time:.2f} seconds")
+
+def train():
+    """
+    Train the crew for a given number of iterations.
+    """
+    try:
+        validate_inputs(inputs)
+        LongCovidCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+    except Exception as e:
+        raise Exception(f"An error occurred while training the crew: {e}")
+
+def replay():
+    """
+    Replay the crew execution from a specific task.
+    """
+    try:
+        validate_inputs(inputs)
+        LongCovidCrew().crew().replay(task_id=sys.argv[1])
+    except Exception as e:
+        raise Exception(f"An error occurred while replaying the crew: {e}")
+
+def test():
+    """
+    Test the crew execution and returns the results.
+    """
+    try:
+        validate_inputs(inputs)
+        LongCovidCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+    except Exception as e:
+        raise Exception(f"An error occurred while testing the crew: {e}")
 
 if __name__ == "__main__":
     run()

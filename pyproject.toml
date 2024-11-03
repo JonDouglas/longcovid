@@ -1,19 +1,22 @@
-[tool.poetry]
+[project]
 name = "longcovid"
 version = "0.1.0"
 description = "longcovid multi-agent research project"
-authors = ["Jon Douglas <jondouglasdev@gmail.com>"]
+authors = [{ name = "Jon Douglas", email = "jondouglasdev@gmail.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.74.2,<1.0.0",
+    "xmltodict>=0.14.2",
+    "semanticscholar>=0.8.4"
+]
 
-[tool.poetry.dependencies]
-python = "<=3.13,>=3.10"
-crewai = "^0.76.2"
-xmltodict = "^0.14.2"
-semanticscholar = "^0.8.4"
-
-[tool.poetry.scripts]
+[project.scripts]
 longcovid = "longcovid.main:run"
+run_crew = "longcovid.main:run"
 train = "longcovid.main:train"
+replay = "longcovid.main:replay"
+test = "longcovid.main:test"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
