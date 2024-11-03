@@ -1,1 +1,0 @@
-This strategic proposal outlines a set of innovative combination therapies targeting multiple mechanisms of Long COVID, focusing on their potential synergistic effects and therapeutic outcomes.

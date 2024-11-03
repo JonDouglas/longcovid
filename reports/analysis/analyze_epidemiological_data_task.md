@@ -1,1 +1,0 @@
-The comprehensive epidemiological analysis of Long COVID is provided above, detailing prevalence, risk factors, demographic patterns, temporal trends, and vaccination impact.
