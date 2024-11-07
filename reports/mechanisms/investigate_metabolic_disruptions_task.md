@@ -1,0 +1,1 @@
+This comprehensive report details the metabolic and mitochondrial dysfunction associated with Long COVID, providing insights into potential biomarkers and therapeutic strategies for improved patient management.

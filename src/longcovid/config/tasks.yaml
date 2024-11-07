@@ -208,63 +208,54 @@ develop_combination_treatments_task:
     **Research Focus:**
     {research_focus}
   expected_output: >
-    A strategic proposal in markdown format including:
-    - **Set of up to {num_combinations} innovative combination treatments**, each detailing:
-      - Components of the combination (therapeutics/interventions).
-      - Rationale for the combination, including mechanistic synergy.
-      - **Explanation of how the combination targets root causes of Long COVID.**
-      - **Description of how the combination addresses multiple Long COVID mechanisms, prioritizing underlying pathology.**
-      - **Incorporation of therapies effective in related diseases, if applicable.**
-      - Justification for repeating any promising therapeutic in multiple combinations, if applicable.
-      - Potential benefits over monotherapy.
-      - **Comparison to AIDS/HIV combination therapy approaches, highlighting similarities in strategy.**
-      - **Insights from systems biology and network pharmacology supporting the combination.**
-      - Safety considerations and interaction assessments, including detailed monitoring plans.
-      - Proposed dosing regimens and administration guidelines.
-      - **Patient stratification insights**, identifying subgroups likely to benefit most based on biomarkers or genetic profiles.
-      - **Pharmacogenomic considerations** if applicable.
-      - **Regulatory pathway** suggestions for approval.
-      - Inclusion of experimental therapeutics, if applicable, with justification.
-      - **Connection to large-scale research initiatives (e.g., Project NextGen), if relevant.**
-    - **High-potential monotherapies** (if applicable):
-      - Detailed rationale for consideration as a standalone treatment.
-      - Strong scientific evidence supporting its use.
-      - **Inclusion of patient advocacy group insights and real-world evidence.**
-      - Comparison of potential benefits against combination approaches.
-      - **Patient-centered outcomes** and quality of life impact.
-      - **Regulatory and ethical considerations**.
-    - **Prioritization and Feasibility Analysis:**
-      - Ranking of combinations and monotherapies based on innovation, potential impact, feasibility, patient-centered outcomes, and ethical considerations.
-      - **Emphasis on combinations that include therapeutics targeting root causes and addressing multiple underlying mechanisms.**
-      - **Consideration of global availability and approval status of included therapeutics.**
-      - Justification for any monotherapies included in the prioritization.
-      - **Validation of final lists against identified mechanisms.**
-    - **Recommendations for Clinical Evaluation:**
-      - Suggestions for pilot studies or inclusion in **adaptive trial designs**.
-      - **Utilization of AI and computational modeling results to predict efficacy and safety.**
-      - Monitoring strategies for assessing efficacy and safety, including patient-reported outcomes.
-      - Detailed **safety monitoring plans** and post-marketing surveillance strategies.
-      - **Regulatory considerations** for clinical trial approval.
-      - **Proposed studies for interventions that will be available soon or from other countries.**
-    - **Acute COVID-19 Therapeutic Integration:**
-      - Explanation of how acute COVID-19 therapeutics are incorporated into combination treatments, if applicable.
-      - Justification for including any acute COVID-19 therapeutics that showed no individual effect.
-    - **Lessons from AIDS/HIV Crisis:**
-      - Analysis of how the proposed combination strategies align with successful approaches from the AIDS/HIV treatment paradigm.
-      - Discussion on potential long-term benefits of aggressive combination therapies, despite initial costs.
-    - **Preprint Analysis:**
-      - Summary of key findings from preprint servers related to combination treatments, clearly labeled as not yet peer-reviewed.
-      - Assessment of potential impact of preprint findings on combination treatment strategies.
-    - **Future Therapeutics Analysis:**
-      - Overview of promising future therapeutics identified in large-scale initiatives.
-      - Timeline for potential availability and integration into combination strategies.
-      - Recommendations for preparatory research or clinical trial planning.
-    - **Mechanism Alignment Analysis:**
-      - For each combination, provide a detailed explanation of how it addresses mechanisms described in the PDF.
-      - **Highlight any novel mechanisms targeted by combinations discovered through systems biology that may not be fully covered in the PDF.**
-    - **Patient Advocacy and Real-World Evidence Integration:**
-      - Include perspectives from patient advocacy groups on proposed combinations.
-      - Incorporate real-world data supporting the efficacy and safety of combinations.
+    A comprehensive strategic proposal in markdown format that MUST include ALL of the following sections:
+
+    1. **Executive Summary** (Required)
+       - Overview of approach and key findings
+       - Summary of most promising combinations identified
+       - Critical insights and recommendations
+
+    2. **Detailed Analysis of Combination Treatments** (Required)
+       For EACH of the {num_combinations} combinations:
+       - Full composition and rationale
+       - Detailed mechanistic analysis
+       - Supporting evidence from literature
+       - Safety and interaction assessments
+       - Implementation guidelines
+       - Patient stratification approach
+       - Regulatory considerations
+
+    3. **Monotherapy Analysis** (Required if applicable)
+       For each identified monotherapy:
+       - Complete scientific rationale
+       - Evidence synthesis
+       - Comparison with combination approaches
+       - Implementation considerations
+
+    4. **Strategic Analysis Sections** (All Required)
+       - Prioritization and feasibility assessment
+       - Clinical evaluation recommendations
+       - Acute COVID-19 therapeutic integration analysis
+       - AIDS/HIV crisis lessons and parallels
+       - Preprint research analysis
+       - Future therapeutics roadmap
+       - Mechanism alignment analysis
+       - Patient advocacy and real-world evidence synthesis
+
+    5. **Technical Implementation Details** (Required)
+       - Detailed dosing protocols
+       - Safety monitoring procedures
+       - Drug interaction assessments
+       - Patient stratification protocols
+       - Regulatory compliance guidelines
+
+    6. **Future Directions and Recommendations** (Required)
+       - Research priorities
+       - Clinical trial designs
+       - Implementation strategies
+       - Risk mitigation approaches
+
+    Note: Each section must be comprehensive and fully developed. Brief summaries or partial analyses are not acceptable. The report should maintain academic rigor while being accessible to medical professionals.
 
     {format_guidelines}
 
