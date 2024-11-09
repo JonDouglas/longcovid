@@ -15,12 +15,51 @@ conduct_mechanism_research_task:
     - **Prioritize the most recent research findings, giving preference to studies published within the last year when possible.**
     - **Incorporate cutting-edge topics such as transcriptomics, NK cell activity, T cell exhaustion, latent viruses, gene uptake, and spike protein translocation.**
 
+    **Additional Viral Persistence Focus:**
+    - Analyze evidence for different viral persistence mechanisms:
+      1. RNA persistence without active viral replication
+      2. Ongoing viral protein production without complete virions
+      3. Low-level periodic viral replication maintaining reservoirs
+    - Evaluate tissue-specific viral persistence patterns
+    - Research markers of viral activity vs dormancy
+    - Study mechanisms enabling long-term viral persistence
+    - Investigate factors influencing viral reservoir maintenance
+    
     **Prioritization Criteria:**
     - Strength of supporting evidence (e.g., sample size, study design, replication).
     - Relevance to a significant proportion of Long COVID patients.
     - Novelty and potential for impacting future research or treatment.
     - **Potential to address root causes rather than just symptoms.**
     - **Recency of the research, with a focus on the latest findings and emerging hypotheses.**
+    - **Additional emphasis on viral persistence evidence strength**
+    - **Focus on mechanisms enabling long-term viral maintenance**
+
+    **Research Focus:**
+    {research_focus}
+
+    **Additional Key Research Areas:**
+    - Evidence of SARS-CoV-2 antigen persistence in 25-45% of Long COVID patients
+    - EBV and VZV dysregulation in ~20% of cases, with 53% showing reactivation during acute infection
+    - Elevated immune activation in 40% of LC samples vs <15% in convalescent controls
+    - T cell detection of viral proteins as potential diagnostic tool
+    - Multi-system tissue involvement requiring comprehensive analysis
+    - Role of NK cell dysfunction in disease persistence
+    - Impact on multiple body systems:
+      - Respiratory system
+      - Cardiovascular system
+      - Nervous system
+      - Skeletal system
+      - Lymphatic system
+      - Digestive system
+      - Reproductive system
+      - Muscular system
+
+    **Advanced Detection Methods:**
+    - Non-invasive nuclear imaging for viral protein detection
+    - Digital Spatial Profiling of tissues
+    - High-dimensional spatial multi-omic analyses
+    - PET imaging techniques using targeted antibodies (e.g., [89Zr]-DFO-Sotrovimab)
+    - T cell-based biosensor approaches
 
     **Research Focus:**
     {research_focus}
@@ -71,6 +110,17 @@ identify_therapeutics_task:
     - **Investigate therapeutics targeting specific mechanisms like NK cell activity, T cell exhaustion, and viral persistence.**
     - **Include advanced therapies like gene editing, monoclonal antibodies, and immunomodulators.**
 
+    **Additional Viral Persistence Considerations:**
+    - Evaluate therapeutics specifically targeting:
+      - RNA persistence mechanisms
+      - Viral protein production
+      - Reservoir maintenance
+    - Consider treatment factors:
+      - Methods to identify viral persistence
+      - Required treatment durations
+      - Tissue penetration capabilities
+      - Combination approach potential
+
     **Additional Guidelines:**
     - Review acute COVID-19 therapeutic data to identify potential candidates for Long COVID treatment.
     - Exclude therapeutics that showed no effect in acute COVID-19 trials unless they meet one of the following conditions
@@ -91,6 +141,8 @@ identify_therapeutics_task:
     - Safety profile and potential adverse effects.
     - **Alignment with large-scale research initiatives and future therapeutic directions.**
     - **Consistency with mechanisms outlined in the provided PDF.**
+    - **Ability to target specific viral persistence mechanisms**
+    - **Potential for reaching tissue reservoirs**
 
     **Research Focus:**
     {research_focus}
@@ -181,6 +233,18 @@ develop_combination_treatments_task:
     - **Ensure all proposed combinations align with the mechanisms described in the provided PDF.**
     - **Identify any combinations that address mechanisms not fully covered in the PDF.**
 
+    **Additional Viral Persistence Strategy:**
+    - Design combinations addressing:
+      - Multiple persistence mechanisms simultaneously
+      - Tissue reservoir penetration
+      - Viral spread prevention
+      - Immune support for viral clearance
+    - Consider persistence-specific factors:
+      - Stratification by persistence type
+      - Extended treatment durations
+      - Viral clearance measurements
+      - Reinfection prevention strategies
+
     **Additional Guidelines:**
     - **Draw inspiration from the AIDS/HIV crisis:**
       - Embrace a "cocktail" approach, combining multiple drugs with different mechanisms of action.
@@ -194,6 +258,12 @@ develop_combination_treatments_task:
     - Develop detailed **safety monitoring plans**, including post-marketing surveillance.
     - Identify **regulatory pathways** for expedited approval, such as emergency use authorizations.
 
+    **Additional Treatment Considerations:**
+    - Strategies to target infected megakaryocytes and platelets
+    - Approaches to prevent viral spread via platelet production
+    - Methods to clear viral components from the MK-platelet axis
+    - Combination therapies addressing both viral persistence in MKs and systemic inflammation
+
     **Assessment Criteria:**
     - **Innovation and potential impact of each combination, with emphasis on addressing root causes.**
     - Mechanistic complementarity of combined therapeutics.
@@ -204,6 +274,8 @@ develop_combination_treatments_task:
     - Safety considerations, including potential drug-drug interactions.
     - **Patient-centered outcomes, focusing on long-term improvements and potential for disease modification.**
     - **Consistency with mechanisms outlined in the provided PDF.**
+    - **Coverage of multiple viral persistence mechanisms**
+    - **Ability to reach and clear tissue reservoirs**
 
     **Research Focus:**
     {research_focus}
@@ -578,6 +650,22 @@ investigate_immune_responses_task:
     - **Utilize cutting-edge immunological techniques such as flow cytometry, single-cell RNA sequencing, and CRISPR-based assays.**
     - **Focus on detecting subtle immune alterations not identifiable with conventional methods.**
     - **Integrate findings with other data to build a comprehensive immune profile of Long COVID.**
+
+    **New Research Findings to Incorporate:**
+    - Focus on non-spike-specific CD8+ T cells showing upregulated coinhibitory receptors
+    - Investigate suboptimal antibody-mediated neutralization
+    - Study plasma proteome perturbations
+    - Examine anatomically localized viral reservoirs
+    - Note that circulating immune lineages and virus-specific T cell immunity show no major differences between LC and controls
+    
+    **Additional Investigation Areas:**
+    - Investigate mechanisms of ongoing antigen recognition
+    - Study T cell regulation and exhaustion markers
+    - Examine covert pathological processes not associated with widespread viral replication
+    - Focus on tissue-specific immune responses rather than circulating immune cells
+
+    **Research Focus:**
+    {research_focus}
   expected_output: >
     A detailed immunological analysis in markdown format including:
     - Overview of key immune system components involved in Long COVID.
@@ -626,6 +714,19 @@ explore_viral_persistence_task:
     - Analyze transcriptomic and proteomic data for signs of ongoing viral activity.
     - Investigate the role of viral persistence in driving chronic inflammation and autoimmunity.
     - Explore potential interactions between persistent SARS-CoV-2 and other latent viruses.
+
+    **New Research Findings to Incorporate:**
+    - Focus on anatomically localized SARS-CoV-2 reservoirs
+    - Study suboptimal antibody-mediated neutralization enabling viral persistence
+    - Investigate initial site of infection for viral persistence
+    - Examine covert pathological processes without widespread replication
+    - Study tissue damage mechanisms associated with viral reservoirs
+    
+    **Additional Investigation Areas:**
+    - Develop methods to detect and monitor localized viral reservoirs
+    - Study mechanisms of viral persistence without active replication
+    - Investigate tissue-specific immune responses to viral reservoirs
+    - Research therapeutic approaches targeting anatomically restricted viral persistence
 
     **Research Focus:**
     {research_focus}
@@ -838,6 +939,15 @@ investigate_NK_and_T_cell_dynamics_task:
     - Investigate the impact of altered NK and T cell function on viral clearance and immune regulation.
     - **Identify therapies aimed at enhancing NK cell activity or reversing T cell exhaustion.**
     - Correlate findings with patient outcomes and symptom profiles.
+
+    **Additional Focus Areas:**
+    - Analysis of NK cell phenotype alterations in LC patients
+    - Quantification of mature and cytotoxic NK cell populations
+    - Gender-specific differences in NK cell responses
+    - Correlation between NK cell dysfunction and symptom severity
+    - Integration with spatial profiling data
+    - Impact on granzyme B activity and CTL function
+    - Natural killer cell activation regulation
 
     **Research Focus:**
     {research_focus}
